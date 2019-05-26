@@ -16,3 +16,17 @@
 ##    ('9', ['A', 'B', 'E', 'C'])
 ##
 ##
+data = open('data.csv','r').readlines()
+data = [row.split('\t') for row in data]
+data = [[row[0], row[1]] for row in data]
+
+lista = []
+
+for i in range(0,10):
+    lista.append((str(i),[]))
+
+for a,b in data:
+    lista[int(b)][1].append(str(a))      
+
+for i in lista:
+    print(i)

@@ -11,3 +11,12 @@
 ## E,2,3
 ## E,3,3
 ##
+data = open('data.csv','r').readlines()
+data = [row.split('\t') for row in data]
+data1 = [[row[3].count(',')+1,row[4].count(':')] for row in data]
+
+cont = 0
+for i in data:
+    print(f'{i[0]},{data1[cont][0]},{data1[cont][1]}')
+    cont = cont + 1
+

@@ -15,3 +15,18 @@
 ## jjj,18
 ##
 ##
+data = open('data.csv','r').readlines()
+data = [row.split('\t') for row in data]
+data = [row[4][:-1] for row in data]
+data = [row.split(',') for row in data]
+lista = [i[:-2] for key in data for i in key ]
+
+count={}
+for i in lista:
+    if(count.get(i) != None):
+        count[i] = count[i] + 1
+    else:
+        count[i] = 1
+
+for i in sorted(count.keys()):
+    print(f'{i},{count[i]}')
